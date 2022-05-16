@@ -1,6 +1,6 @@
 import get from 'lodash/get';
 import isNil from 'lodash/isNil';
-import { API, API_KEY_VLEAGUE } from '../../../configs';
+import { DATA_API, API_KEY_VLEAGUE } from '../../../configs';
 import { axiosGet } from '../../../libs/axios';
 import logger from '../../../libs/logger';
 import { Player } from '../types';
@@ -18,7 +18,7 @@ export const getPlayers = async ({
   if (!isNil(limit)) urlSearchParams.set('limit', limit.toString());
   if (!isNil(skip)) urlSearchParams.set('skip', skip.toString());
   if (!isNil(teamId)) urlSearchParams.set('teamId', teamId);
-  const url = `${API}/players?${urlSearchParams.toString()}`;
+  const url = `${DATA_API}/players?${urlSearchParams.toString()}`;
   logger.info({ url }, 'getPlayers() url');
   const response = await axiosGet(url, {
     headers: { 'X-API-KEY': API_KEY_VLEAGUE },

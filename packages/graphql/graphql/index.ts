@@ -13,6 +13,7 @@ import {
   schemas as standingsSchemas,
 } from './standings';
 import { resolvers as teamsResolvers, schemas as teamsSchemas } from './teams';
+import { resolvers as usersResolvers, schemas as usersSchemas } from './users';
 import {
   resolvers as videosResolvers,
   schemas as videosSchemas,
@@ -20,6 +21,7 @@ import {
 
 const globalsSchemas = gql`
   type Query
+  type Mutation
 `;
 
 export const typeDefs = [
@@ -28,6 +30,7 @@ export const typeDefs = [
   playersSchemas,
   standingsSchemas,
   teamsSchemas,
+  usersSchemas,
   videosSchemas,
 ];
 
@@ -36,5 +39,6 @@ export const resolvers = merge(
   playersResolvers,
   standingsResolvers,
   teamsResolvers,
+  usersResolvers,
   videosResolvers
 );

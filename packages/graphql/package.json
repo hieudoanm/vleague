@@ -8,7 +8,7 @@
   "author": "hieudoanm <hieumdoan@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "nodemon dev.ts",
+    "dev": "kill-port 5000 && nodemon dev.ts",
     "test": "jest",
     "lint": "eslint . --fix --ext .ts"
   },

@@ -1,6 +1,6 @@
 import get from 'lodash/get';
 import isNil from 'lodash/isNil';
-import { API, API_KEY_VLEAGUE } from '../../../configs';
+import { DATA_API, API_KEY_VLEAGUE } from '../../../configs';
 import { axiosGet } from '../../../libs/axios';
 import logger from '../../../libs/logger';
 import { Tier } from '../../types';
@@ -19,7 +19,7 @@ export const getStandings = async ({
   if (!isNil(tier)) urlSearchParams.set('tier', tier);
   if (!isNil(teamId)) urlSearchParams.set('teamId', teamId);
   if (!isNil(season)) urlSearchParams.set('season', season.toString());
-  const url = `${API}/standings?${urlSearchParams.toString()}`;
+  const url = `${DATA_API}/standings?${urlSearchParams.toString()}`;
   logger.info({ url }, 'getStandings() url');
   const response = await axiosGet(url, {
     headers: { 'X-API-KEY': API_KEY_VLEAGUE },
