@@ -1,0 +1,7 @@
+POST https://vleague-graphql.vercel.app/graphql
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+query {
+  hello
+}
