@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@3rdweb/hooks": "^1.9.2",
-    "@apollo/client": "^3.5.10",
+    "@apollo/client": "3.6.2",
     "@auth0/nextjs-auth0": "^1.7.0",
     "@emotion/cache": "^11.7.1",
     "@emotion/react": "^11.8.2",
