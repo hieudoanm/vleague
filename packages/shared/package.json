@@ -1,0 +1,30 @@
+{
+  "name": "shared",
+  "version": "0.0.1",
+  "description": "Shared",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "git@github.com:hieudoanm/vleague.git",
+  "author": "hieudoanm <hieumdoan@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint . --fix --ext .ts",
+    "test": "jest"
+  },
+  "dependencies": {
+    "axios": "0.27.2",
+    "pino": "8.1.0"
+  },
+  "devDependencies": {
+    "@types/jest": "28.1.3",
+    "@types/node": "18.0.0",
+    "@typescript-eslint/eslint-plugin": "5.30.0",
+    "@typescript-eslint/parser": "5.30.0",
+    "eslint": "8.18.0",
+    "jest": "28.1.1",
+    "ts-jest": "28.0.5",
+    "typescript": "4.7.4"
+  }
+}

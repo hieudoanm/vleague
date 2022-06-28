@@ -10,7 +10,6 @@ import Logo from '../../../components/atoms/Logo';
 import PageTemplate from '../../../components/templates/PageTemplate';
 import { messagesByLocales } from '../../../messages/fixtures';
 import { Fixture as FixtureType } from '../../../types';
-import uuid from '../../../utils/uuid';
 import { useTranslations } from 'next-intl';
 
 type TeamFormProps = { teamId: string; form: FixtureType[]; side: string };
@@ -125,9 +124,9 @@ const FixtureHeadToHead: React.FC<FixtureHeadToHeadProps> = ({ head2head }) => {
           {t('headToHead')}
         </h2>
         <div className="flex flex-col gap-4">
-          {head2head.map((fixture) => {
+          {head2head.map((fixture: FixtureType) => {
             return (
-              <div key={`fixture-${uuid()}`}>
+              <div key={`fixture-${fixture.fixtureId}`}>
                 <div className="mb-4 text-center">
                   <p className="font-medium mb-2">{fixture.date}</p>
                   <p className="text-gray-500">{fixture.stadium}</p>

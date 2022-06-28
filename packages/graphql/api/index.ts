@@ -16,7 +16,10 @@ app.use(cors());
 app.use(express.json());
 const httpServer = http.createServer(app);
 
-const startApolloServer = async (app: any, httpServer: http.Server) => {
+const startApolloServer = async (
+  app: express.Application,
+  httpServer: http.Server
+) => {
   const playgroundPlugin =
     NODE_ENV === 'development'
       ? ApolloServerPluginLandingPageGraphQLPlayground()

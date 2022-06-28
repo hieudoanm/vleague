@@ -1,0 +1,800 @@
+{
+  "components": {
+    "examples": {},
+    "headers": {},
+    "parameters": {},
+    "requestBodies": {},
+    "responses": {},
+    "schemas": {
+      "Tier": {
+        "enum": ["TIER_CUP", "TIER_ONE", "TIER_TWO"],
+        "type": "string"
+      },
+      "FixtureEntity": {
+        "properties": {
+          "fixtureId": {
+            "type": "string"
+          },
+          "competition": {
+            "type": "string"
+          },
+          "competitionTier": {
+            "$ref": "#/components/schemas/Tier"
+          },
+          "season": {
+            "type": "number",
+            "format": "double"
+          },
+          "round": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "time": {
+            "type": "string"
+          },
+          "stadium": {
+            "type": "string"
+          },
+          "homeId": {
+            "type": "string"
+          },
+          "homeTeam": {
+            "type": "string"
+          },
+          "homeScore": {
+            "type": "number",
+            "format": "double"
+          },
+          "awayId": {
+            "type": "string"
+          },
+          "awayTeam": {
+            "type": "string"
+          },
+          "awayScore": {
+            "type": "number",
+            "format": "double"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "fixtureId",
+          "competition",
+          "competitionTier",
+          "season",
+          "round",
+          "status",
+          "date",
+          "time",
+          "stadium",
+          "homeId",
+          "homeTeam",
+          "homeScore",
+          "awayId",
+          "awayTeam",
+          "awayScore",
+          "note"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "PlayerEntity": {
+        "properties": {
+          "playerId": {
+            "type": "string"
+          },
+          "shirtNumber": {
+            "type": "number",
+            "format": "double"
+          },
+          "position": {
+            "type": "string"
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "dateOfBirth": {
+            "type": "string"
+          },
+          "teamId": {
+            "type": "string"
+          },
+          "team": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "playerId",
+          "shirtNumber",
+          "position",
+          "fullName",
+          "dateOfBirth",
+          "teamId",
+          "team"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "StandingEntity": {
+        "properties": {
+          "standingId": {
+            "type": "string"
+          },
+          "competition": {
+            "type": "string"
+          },
+          "competitionTier": {
+            "type": "string"
+          },
+          "season": {
+            "type": "number",
+            "format": "double"
+          },
+          "position": {
+            "type": "number",
+            "format": "double"
+          },
+          "teamId": {
+            "type": "string"
+          },
+          "team": {
+            "type": "string"
+          },
+          "played": {
+            "type": "number",
+            "format": "double"
+          },
+          "points": {
+            "type": "number",
+            "format": "double"
+          },
+          "won": {
+            "type": "number",
+            "format": "double"
+          },
+          "drawn": {
+            "type": "number",
+            "format": "double"
+          },
+          "lost": {
+            "type": "number",
+            "format": "double"
+          },
+          "goals": {
+            "type": "number",
+            "format": "double"
+          },
+          "goalsAgainst": {
+            "type": "number",
+            "format": "double"
+          },
+          "goalsDifference": {
+            "type": "number",
+            "format": "double"
+          },
+          "yellowCards": {
+            "type": "number",
+            "format": "double"
+          },
+          "redCards": {
+            "type": "number",
+            "format": "double"
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "standingId",
+          "competition",
+          "competitionTier",
+          "season",
+          "position",
+          "teamId",
+          "team",
+          "played",
+          "points",
+          "won",
+          "drawn",
+          "lost",
+          "goals",
+          "goalsAgainst",
+          "goalsDifference",
+          "yellowCards",
+          "redCards",
+          "note"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "TeamEntity": {
+        "properties": {
+          "teamId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "stadium": {
+            "type": "string"
+          },
+          "province": {
+            "type": "string"
+          },
+          "chairman": {
+            "type": "string"
+          },
+          "manager": {
+            "type": "string"
+          },
+          "founded": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "tier": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "teamId",
+          "name",
+          "fullName",
+          "stadium",
+          "province",
+          "chairman",
+          "manager",
+          "founded",
+          "active",
+          "tier"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "UserEntity": {
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          }
+        },
+        "required": ["email", "key"],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "Video": {
+        "properties": {
+          "thumbnail": {
+            "type": "string"
+          },
+          "publishedAt": {
+            "type": "string"
+          },
+          "channelTitle": {
+            "type": "string"
+          },
+          "channelId": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "thumbnail",
+          "publishedAt",
+          "channelTitle",
+          "channelId",
+          "description",
+          "title",
+          "id"
+        ],
+        "type": "object"
+      }
+    },
+    "securitySchemes": {}
+  },
+  "info": {
+    "title": "server",
+    "version": "0.0.1",
+    "description": "Server",
+    "license": {
+      "name": "MIT"
+    },
+    "contact": {
+      "name": "hieudoanm ",
+      "email": "hieumdoan@gmail.com"
+    }
+  },
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/fixtures": {
+      "get": {
+        "operationId": "GetFixtures",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/FixtureEntity"
+                      },
+                      "type": "array"
+                    },
+                    "total": {
+                      "type": "number",
+                      "format": "double"
+                    }
+                  },
+                  "required": ["data", "total"],
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Fixtures"],
+        "security": [],
+        "parameters": []
+      }
+    },
+    "/api/fixtures/{fixtureId}": {
+      "get": {
+        "operationId": "GetFixture",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "fixture": {
+                      "$ref": "#/components/schemas/FixtureEntity"
+                    }
+                  },
+                  "required": ["fixture"],
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Fixtures"],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "fixtureId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/players": {
+      "get": {
+        "operationId": "GetPlayers",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/PlayerEntity"
+                      },
+                      "type": "array"
+                    },
+                    "total": {
+                      "type": "number",
+                      "format": "double"
+                    }
+                  },
+                  "required": ["data", "total"],
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Players"],
+        "security": [],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "skip",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "format": "double",
+              "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 50,
+              "format": "double",
+              "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "teamId",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/players/{playerId}": {
+      "get": {
+        "operationId": "GetPlayer",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "player": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/PlayerEntity"
+                        }
+                      ],
+                      "nullable": true
+                    }
+                  },
+                  "required": ["player"],
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Players"],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "playerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/standings": {
+      "get": {
+        "operationId": "GetStandings",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/StandingEntity"
+                      },
+                      "type": "array"
+                    },
+                    "total": {
+                      "type": "number",
+                      "format": "double"
+                    }
+                  },
+                  "required": ["data", "total"],
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Standings"],
+        "security": [],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "competitionTier",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Tier"
+            }
+          },
+          {
+            "in": "query",
+            "name": "season",
+            "required": true,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          }
+        ]
+      }
+    },
+    "/api/standings/{standingId}": {
+      "get": {
+        "operationId": "GetStanding",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "standing": {
+                      "$ref": "#/components/schemas/StandingEntity"
+                    }
+                  },
+                  "required": ["standing"],
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Standings"],
+        "security": [],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "competitionTier",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Tier"
+            }
+          },
+          {
+            "in": "query",
+            "name": "season",
+            "required": true,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "teamId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/teams": {
+      "get": {
+        "operationId": "GetTeams",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/TeamEntity"
+                      },
+                      "type": "array"
+                    },
+                    "total": {
+                      "type": "number",
+                      "format": "double"
+                    }
+                  },
+                  "required": ["data", "total"],
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Teams"],
+        "security": [],
+        "parameters": []
+      }
+    },
+    "/api/teams/{teamId}": {
+      "get": {
+        "operationId": "GetTeam",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "team": {
+                      "$ref": "#/components/schemas/TeamEntity"
+                    }
+                  },
+                  "required": ["team"],
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Teams"],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "teamId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/users": {
+      "get": {
+        "operationId": "GetUser",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "user": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/UserEntity"
+                        }
+                      ],
+                      "nullable": true
+                    }
+                  },
+                  "required": ["user"],
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Users"],
+        "security": [],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "email",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "post": {
+        "operationId": "CreateUser",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "user": {
+                      "$ref": "#/components/schemas/UserEntity"
+                    }
+                  },
+                  "required": ["user"],
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Users"],
+        "security": [],
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  }
+                },
+                "required": ["email"],
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/videos": {
+      "get": {
+        "operationId": "GetVideos",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "items": {
+                        "$ref": "#/components/schemas/Video"
+                      },
+                      "type": "array"
+                    },
+                    "total": {
+                      "type": "number",
+                      "format": "double"
+                    }
+                  },
+                  "required": ["data", "total"],
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Videos"],
+        "security": [],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "maxResults",
+            "required": true,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ]
+}

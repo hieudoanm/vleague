@@ -14,7 +14,6 @@ import Fixture from '../components/molecules/Fixture';
 import Logo from '../components/atoms/Logo';
 import PageTemplate from '../components/templates/PageTemplate';
 import { Fixture as FixtureType, Standing, Video } from '../types';
-import uuid from '../utils/uuid';
 import Carousel from '../components/atoms/Carousel';
 import { useTranslations } from 'next-intl';
 import { CURRENT_TIER } from '../constants';
@@ -40,7 +39,10 @@ const Fixtures: React.FC<FixturesProps> = ({ fixtures }) => {
               <div className="text-center pt-4 font-medium">{date}</div>
               {fixturesByDate.map((fixture: FixtureType) => {
                 return (
-                  <div key={`fixture-${uuid()}`} className="border-b py-4">
+                  <div
+                    key={`fixture-${fixture.fixtureId}`}
+                    className="border-b py-4"
+                  >
                     <Fixture fixture={fixture} />
                   </div>
                 );
@@ -82,7 +84,7 @@ const Standings: React.FC<StandingsProps> = ({ standings }) => {
         <tbody>
           {standings.map((standing: Standing) => {
             return (
-              <tr key={`standing-${uuid()}`} className="border-b">
+              <tr key={`standing-${standing.standingId}`} className="border-b">
                 <td className="py-2 " align="center">
                   {standing.position}
                 </td>
