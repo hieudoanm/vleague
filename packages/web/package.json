@@ -46,7 +46,7 @@
     "@types/react": "17.0.47",
     "autoprefixer": "10.4.7",
     "babel-loader": "8.2.5",
-    "eslint": "8.11.0",
+    "eslint": "8.18.0",
     "eslint-config-next": "12.1.0",
     "jest": "27.5.1",
     "postcss": "8.4.14",
