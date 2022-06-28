@@ -13,7 +13,9 @@ export const useTeams = (): Team[] => {
   return teams;
 };
 
-export const TeamsProvider: React.FC = ({ children }) => {
+export const TeamsProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [teams, setTeams] = useState<Team[]>([]);
 
   useEffect(() => {

@@ -1,7 +1,11 @@
 import Container from '@mui/material/Container';
 import React from 'react';
 
-const PageFooter: React.FC = ({ children }) => {
+export type PageFooterProps = {
+  children?: React.ReactNode;
+};
+
+const PageFooter: React.FC<PageFooterProps> = ({ children = '' }) => {
   return (
     <footer className="border-t">
       <Container className="py-8">{children}</Container>
@@ -10,5 +14,6 @@ const PageFooter: React.FC = ({ children }) => {
 };
 
 PageFooter.displayName = 'PageFooter';
+PageFooter.defaultProps = { children: '' };
 
 export default PageFooter;

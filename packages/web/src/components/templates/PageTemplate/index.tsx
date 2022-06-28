@@ -12,6 +12,7 @@ import Sponsors from '../../organisms/Sponsors';
 export type PageTemplateProps = {
   title?: string;
   headerActions?: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 const PageTemplate: React.FC<PageTemplateProps> = ({
@@ -84,6 +85,10 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
 };
 
 PageTemplate.displayName = 'PageTemplate';
-PageTemplate.defaultProps = { title: '' };
+PageTemplate.defaultProps = {
+  title: '',
+  headerActions: <></>,
+  children: <></>,
+};
 
 export default PageTemplate;

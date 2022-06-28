@@ -15,7 +15,9 @@ export const usePhantomWallet = (): {
   return solanaWallet;
 };
 
-export const SolanaWalletProvider: React.FC = ({ children }) => {
+export const SolanaWalletProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [publicKey, setPublicKey] = useState<string>('');
 
   return (

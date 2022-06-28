@@ -18,12 +18,16 @@ const tiers: Record<string, string> = {
   TIER_TWO: 'vleague2',
 };
 
-export type TeamTemplateProps = { active: string; team: Team };
+export type TeamTemplateProps = {
+  active: string;
+  team: Team;
+  children?: React.ReactNode;
+};
 
 const TeamTemplate: React.FC<TeamTemplateProps> = ({
   active,
   team,
-  children,
+  children = <></>,
 }) => {
   const t = useTranslations();
 
@@ -110,5 +114,8 @@ const TeamTemplate: React.FC<TeamTemplateProps> = ({
     </PageTemplate>
   );
 };
+
+TeamTemplate.displayName = 'TeamTemplate';
+TeamTemplate.defaultProps = { children: <></> };
 
 export default TeamTemplate;

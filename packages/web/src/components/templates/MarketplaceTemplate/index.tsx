@@ -3,6 +3,7 @@ import PageTemplate from '../PageTemplate';
 
 type MarketplaceTemplateProps = {
   title: string;
+  children?: React.ReactNode;
 };
 
 const connectToWallet = () => (
@@ -13,7 +14,7 @@ const connectToWallet = () => (
 
 const MarketplaceTemplate: React.FC<MarketplaceTemplateProps> = ({
   title,
-  children,
+  children = '',
 }) => {
   return (
     <PageTemplate title={title} headerActions={connectToWallet()}>
@@ -23,5 +24,6 @@ const MarketplaceTemplate: React.FC<MarketplaceTemplateProps> = ({
 };
 
 MarketplaceTemplate.displayName = 'MarketplaceTemplate';
+MarketplaceTemplate.defaultProps = { title: '', children: '' };
 
 export default MarketplaceTemplate;
