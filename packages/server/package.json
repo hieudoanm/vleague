@@ -1,0 +1,48 @@
+{
+  "name": "server",
+  "version": "0.0.1",
+  "description": "Server",
+  "main": "dist/index.js",
+  "repository": "git@github.com:hieudoanm/vleague.git",
+  "author": "hieudoanm <hieumdoan@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": "16",
+    "npm": "8",
+    "yarn": "1"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "kill-port 8080 && concurrently \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",
+    "docs": "redoc-cli build ./src/swagger.json --output ./public/index.html --title \"V.League as a Service\"",
+    "lint": "eslint . --fix --ext .ts",
+    "start": "node .",
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "4.18.1",
+    "http-errors": "2.0.0",
+    "pg": "8.7.3",
+    "pino": "8.1.0",
+    "swagger-ui-express": "4.4.0",
+    "tsoa": "4.1.0",
+    "typeorm": "0.3.6"
+  },
+  "devDependencies": {
+    "@types/http-errors": "1.8.2",
+    "@types/jest": "28.1.3",
+    "@types/node": "18.0.0",
+    "@types/swagger-ui-express": "4.1.3",
+    "@types/uuid": "8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "@typescript-eslint/parser": "^5.30.0",
+    "eslint": "8.18.0",
+    "jest": "28.1.1",
+    "kill-port": "2.0.1",
+    "nodemon": "2.0.18",
+    "redoc-cli": "0.13.16",
+    "ts-jest": "28.0.5",
+    "typescript": "4.7.4"
+  }
+}

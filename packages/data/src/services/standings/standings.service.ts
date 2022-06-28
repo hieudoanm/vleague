@@ -3,7 +3,7 @@ import { Tier } from '../../types';
 import { StandingEntity } from './standings.entity';
 
 export const getStandings = async ({
-  competitionTier = 'TIER_ONE',
+  competitionTier = Tier.TIER_ONE,
   season = new Date().getFullYear(),
 }: {
   competitionTier: Tier;
@@ -17,7 +17,7 @@ export const getStandings = async ({
 };
 
 export const getStanding = async ({
-  competitionTier = 'TIER_ONE',
+  competitionTier = Tier.TIER_ONE,
   season = new Date().getFullYear(),
   teamId = '',
 }: {

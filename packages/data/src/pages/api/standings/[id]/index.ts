@@ -26,7 +26,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     if (req.method === 'GET') {
       const competitionTier: Tier =
-        (req.query.competitionTier as Tier) || 'TIER_ONE';
+        (req.query.competitionTier as Tier) || Tier.TIER_ONE;
       const season: number =
         parseInt(req.query.season?.toString(), 10) || new Date().getFullYear();
       const teamId: string = req.query.id.toString();
