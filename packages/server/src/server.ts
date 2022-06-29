@@ -1,7 +1,7 @@
 import http from 'http';
 import { HttpError } from 'http-errors';
+import { logger } from 'shared';
 import app from './app';
-import { logger } from './libs/logger';
 
 const normalizePort = (val: string): string | number | boolean => {
   const portOrPipe = parseInt(val, 10);

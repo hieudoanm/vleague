@@ -25,6 +25,7 @@
     "http-errors": "2.0.0",
     "pg": "8.7.3",
     "pino": "8.1.0",
+    "shared": "0.0.1",
     "swagger-ui-express": "4.4.0",
     "tsoa": "4.1.0",
     "typeorm": "0.3.6"

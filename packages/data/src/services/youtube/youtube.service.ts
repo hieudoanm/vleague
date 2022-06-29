@@ -12,6 +12,7 @@ type Video = {
   publishedAt: string;
   thumbnail: string;
 };
+
 export const getVideos = async ({
   maxResults = 20,
 }: {

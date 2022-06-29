@@ -14,10 +14,10 @@ import { loadStripe } from '@stripe/stripe-js';
 import get from 'lodash/get';
 import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
 import { useTranslations } from 'next-intl';
+import { axiosPost } from 'shared';
 import { GET_USER } from '../../apollo/schemas';
 import PageTemplate from '../../components/templates/PageTemplate';
 import { messagesByLocales } from '../../messages/profile';
-import { axiosPost } from '../../utils/axios';
 import copy from '../../utils/copy';
 
 type DonateProps = { user: UserProfile };

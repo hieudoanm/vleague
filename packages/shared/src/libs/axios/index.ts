@@ -15,3 +15,20 @@ export const axiosGet = <T>(
       });
   });
 };
+
+export const axiosPost = <T, D>(
+  url: string,
+  data: D,
+  config?: AxiosRequestConfig
+): Promise<T> => {
+  return new Promise((resolve, reject) => {
+    axios
+      .post<T, any, D>(url, data, config)
+      .then((response: AxiosResponse<T>) => {
+        resolve(response.data);
+      })
+      .catch((error: AxiosError<T>) => {
+        reject(error.response?.data);
+      });
+  });
+};

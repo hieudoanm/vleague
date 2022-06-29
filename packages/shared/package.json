@@ -11,6 +11,10 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint . --fix --ext .ts",
+    "postinstall": "yarn build",
+    "postpack": "yarn build",
+    "prepack": "yarn build",
+    "prepare": "yarn build",
     "test": "jest"
   },
   "dependencies": {

@@ -1,4 +1,4 @@
-import { axiosGet } from '../../libs/axios';
+import { axiosGet } from 'shared';
 import { Item, Video } from './videos.types';
 
 const API_KEY_YOUTUBE_DATA_V3 = process.env.API_KEY_YOUTUBE_DATA_V3 || '';
