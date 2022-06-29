@@ -161,7 +161,33 @@ export function RegisterRoutes(app: express.Router) {
       response: any,
       next: any
     ) {
-      const args = {};
+      const args = {
+        limit: {
+          in: 'query',
+          name: 'limit',
+          required: true,
+          dataType: 'double',
+        },
+        season: {
+          in: 'query',
+          name: 'season',
+          required: true,
+          dataType: 'double',
+        },
+        sortBy: {
+          in: 'query',
+          name: 'sortBy',
+          required: true,
+          dataType: 'string',
+        },
+        status: {
+          in: 'query',
+          name: 'status',
+          required: true,
+          dataType: 'string',
+        },
+        tier: { in: 'query', name: 'tier', required: true, ref: 'Tier' },
+      };
 
       // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
@@ -308,12 +334,7 @@ export function RegisterRoutes(app: express.Router) {
       next: any
     ) {
       const args = {
-        competitionTier: {
-          in: 'query',
-          name: 'competitionTier',
-          required: true,
-          ref: 'Tier',
-        },
+        tier: { in: 'query', name: 'tier', required: true, ref: 'Tier' },
         season: {
           in: 'query',
           name: 'season',
@@ -354,12 +375,7 @@ export function RegisterRoutes(app: express.Router) {
       next: any
     ) {
       const args = {
-        competitionTier: {
-          in: 'query',
-          name: 'competitionTier',
-          required: true,
-          ref: 'Tier',
-        },
+        tier: { in: 'query', name: 'tier', required: true, ref: 'Tier' },
         season: {
           in: 'query',
           name: 'season',

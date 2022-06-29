@@ -173,7 +173,6 @@ export const getServerSideProps: GetServerSideProps = async ({
   locale,
 }: GetServerSidePropsContext) => {
   const season = new Date().getFullYear();
-  const tier = CURRENT_TIER;
 
   const data: { videos: Video[] } = await query<{
     videos: Video[];
@@ -182,14 +181,14 @@ export const getServerSideProps: GetServerSideProps = async ({
   }>(GET_HOME, {
     maxResults: 4,
     season,
-    tier,
+    tier: CURRENT_TIER,
     status: 'SCHEDULED',
     limit: 8,
     sortBy: 'date',
   });
-  const videos: Video[] = get(data, 'videos', []);
-  const standings: Video[] = get(data, 'standings', []);
-  const fixtures: Video[] = get(data, 'fixtures', []);
+  const videos: Video[] = get(data, 'videos', []) || [];
+  const standings: Video[] = get(data, 'standings', []) || [];
+  const fixtures: Video[] = get(data, 'fixtures', []) || [];
 
   const messages = messagesByLocales[locale] || messagesByLocales.en;
 

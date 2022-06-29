@@ -1,4 +1,3 @@
-import get from 'lodash/get';
 import isNil from 'lodash/isNil';
 import { API_KEY_VLEAGUE, SERVER_API } from '../../../configs';
 import { axiosGet, logger } from 'shared';
@@ -29,10 +28,10 @@ export const getFixtures = async ({
   if (!isNil(tier)) urlSearchParams.set('tier', tier);
   const url = `${SERVER_API}/fixtures?${urlSearchParams.toString()}`;
   logger.info({ url, API_KEY_VLEAGUE }, 'getFixtures() url');
-  const response = await axiosGet(url, {
+  const response = await axiosGet<{ data: Fixture[] }>(url, {
     headers: { 'X-API-KEY': API_KEY_VLEAGUE },
   });
-  return get(response, 'data', []);
+  return response.data;
 };
 
 export const getFixture = async (

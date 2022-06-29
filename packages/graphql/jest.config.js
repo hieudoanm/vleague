@@ -2,6 +2,7 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
     '<rootDir>/src/**/*.ts',
+    '!<rootDir>/src/server.ts',
     '!<rootDir>/src/**/*.d.ts',
     '!<rootDir>/src/**/*.test.ts',
     '!<rootDir>/src/**/*.ts.snap',

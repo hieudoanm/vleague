@@ -8,23 +8,23 @@ import { getStandings, getStanding } from './standings.service';
 export class StandingsController extends Controller {
   @Get()
   public async getStandings(
-    @Query('competitionTier') competitionTier: Tier,
+    @Query('tier') tier: Tier,
     @Query('season') season: number
   ): Promise<{
     total: number;
     data: StandingEntity[];
   }> {
-    const standings = await getStandings({ competitionTier, season });
+    const standings = await getStandings({ tier, season });
     return { total: standings.length, data: standings };
   }
 
   @Get(':standingId')
   public async getStanding(
-    @Query('competitionTier') competitionTier: Tier,
+    @Query('tier') tier: Tier,
     @Query('season') season: number,
     @Query('teamId') teamId: string
   ) {
-    const standing = await getStanding({ competitionTier, season, teamId });
+    const standing = await getStanding({ tier, season, teamId });
     return { standing };
   }
 }
