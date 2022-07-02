@@ -28,7 +28,7 @@
     "shared": "0.0.1",
     "swagger-ui-express": "4.4.0",
     "tsoa": "4.1.0",
-    "typeorm": "0.3.6"
+    "typeorm": "0.3.7"
   },
   "devDependencies": {
     "@types/http-errors": "1.8.2",
