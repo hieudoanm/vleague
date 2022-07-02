@@ -2,6 +2,65 @@ POST https://vleague-graphql.vercel.app/graphql
 Content-Type: application/json
 X-REQUEST-TYPE: GraphQL
 
-query {
-  hello
+query GET_HOME(
+    $maxResults: Int
+    $season: Int
+    $tier: String
+    $status: String
+    $limit: Int
+    $sortBy: String
+  ) {
+    videos(maxResults: $maxResults) {
+      id
+      title
+      description
+      channelId
+      channelTitle
+      publishedAt
+      thumbnail
+    }
+    standings(season: $season, tier: $tier) {
+      standingId
+      position
+      teamId
+      team
+      played
+      points
+      won
+      drawn
+      lost
+      goals
+      goalsAgainst
+      goalsDifference
+    }
+    fixtures(
+      season: $season
+      tier: $tier
+      status: $status
+      limit: $limit
+      sortBy: $sortBy
+    ) {
+      fixtureId
+      season
+      round
+      status
+      stadium
+      date
+      time
+      homeId
+      homeTeam
+      homeScore
+      awayId
+      awayTeam
+      awayScore
+    }
+  }
+
+{
+    "maxResults": 4,
+    "season": 2022,
+    "tier": "TIER_ONE",
+    "status": "SCHEDULED",
+    "limit": 100,
+    "sortBy": "date"
 }

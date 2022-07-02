@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Tier } from 'shared';
 import { resolvers } from '.';
 
 jest.mock('axios');
@@ -16,7 +17,7 @@ describe('teams service', () => {
     it('should return teams', async () => {
       jest.spyOn(axios, 'get').mockResolvedValueOnce({ data: { data: [] } });
       const teams = await resolvers.Query.teams(undefined, {
-        tier: 'TIER_ONE',
+        tier: Tier.TIER_ONE,
         season: 2022,
       });
       expect(teams).toEqual([]);

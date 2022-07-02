@@ -2,7 +2,7 @@ import Container from '@mui/material/Container';
 import range from 'lodash/range';
 import { useTranslations } from 'next-intl';
 import React from 'react';
-import { CDN_IMAGE_URL } from '../../../constants';
+import { CDN_IMAGE_URL } from '../../../configs';
 
 const Sponsors: React.FC = () => {
   const t = useTranslations();

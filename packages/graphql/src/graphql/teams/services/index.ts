@@ -1,9 +1,7 @@
 import get from 'lodash/get';
 import isNil from 'lodash/isNil';
-import { axiosGet, logger } from 'shared';
+import { axiosGet, logger, Tier, Season, Team } from 'shared';
 import { SERVER_API, API_KEY_VLEAGUE } from '../../../configs';
-import { Tier } from '../../types';
-import { Team } from '../types';
 
 export const getTeam = async (teamId: string): Promise<Team> => {
   const url = `${SERVER_API}/team?teamId=${teamId}`;
@@ -15,11 +13,11 @@ export const getTeam = async (teamId: string): Promise<Team> => {
 };
 
 export const getTeams = async ({
-  tier,
-  season,
+  tier = Tier.TIER_ONE,
+  season = Season.SEASON_CURRENT,
 }: {
   tier?: Tier;
-  season?: number;
+  season?: Season;
 }): Promise<Team[]> => {
   const urlSearchParams = new URLSearchParams();
   if (!isNil(tier)) urlSearchParams.set('tier', tier);

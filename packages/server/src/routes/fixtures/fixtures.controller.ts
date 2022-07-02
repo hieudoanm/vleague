@@ -1,6 +1,5 @@
+import { FixtureSortBy, FixtureEntity, Season, Status, Tier } from 'shared';
 import { Controller, Get, Path, Query, Route, Tags } from 'tsoa';
-import { Tier } from '../../types';
-import { FixtureEntity } from './fixtures.entity';
 import { getFixture, getFixtures } from './fixtures.service';
 
 @Route('api/fixtures')
@@ -8,11 +7,11 @@ import { getFixture, getFixtures } from './fixtures.service';
 export class FixturesController extends Controller {
   @Get()
   public async getFixtures(
-    @Query('limit') limit: number,
-    @Query('season') season: number,
-    @Query('sortBy') sortBy: string,
-    @Query('status') status: string,
-    @Query('tier') tier: Tier
+    @Query('limit') limit = 100,
+    @Query('season') season: Season = Season.SEASON_CURRENT,
+    @Query('sortBy') sortBy: FixtureSortBy = FixtureSortBy.DATE,
+    @Query('status') status: Status = Status.SCHEDULED,
+    @Query('tier') tier: Tier = Tier.TIER_ONE
   ): Promise<{
     total: number;
     data: FixtureEntity[];

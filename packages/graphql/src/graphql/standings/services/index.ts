@@ -1,15 +1,13 @@
 import isNil from 'lodash/isNil';
-import { axiosGet, logger } from 'shared';
+import { axiosGet, logger, Season, Standing, Tier } from 'shared';
 import { SERVER_API, API_KEY_VLEAGUE } from '../../../configs';
-import { Tier } from '../../types';
-import { Standing } from '../types';
 
 export const getStandings = async ({
-  season = new Date().getFullYear(),
+  season = Season.SEASON_CURRENT,
   teamId,
   tier,
 }: {
-  season?: number;
+  season?: Season;
   teamId?: string;
   tier?: Tier;
 }): Promise<Standing[]> => {

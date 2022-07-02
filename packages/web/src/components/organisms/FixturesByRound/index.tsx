@@ -1,6 +1,6 @@
 import groupBy from 'lodash/groupBy';
 import { useTranslations } from 'next-intl';
-import { Fixture } from '../../../types';
+import { Fixture } from 'shared';
 import Round from '../Round';
 
 export type FixturesByRoundProps = {

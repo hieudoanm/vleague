@@ -31,7 +31,12 @@ import * as express from 'express';
 const models: TsoaRoute.Models = {
   Tier: {
     dataType: 'refEnum',
-    enums: ['TIER_CUP', 'TIER_ONE', 'TIER_TWO'],
+    enums: ['TIER_CUP', 'TIER_ONE', 'TIER_TWO', 'TIER_THREE'],
+  },
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  Status: {
+    dataType: 'refEnum',
+    enums: ['CANCELLED', 'FINISHED', 'SCHEDULED', 'LIVE'],
   },
   // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
   FixtureEntity: {
@@ -42,7 +47,7 @@ const models: TsoaRoute.Models = {
       competitionTier: { ref: 'Tier', required: true },
       season: { dataType: 'double', required: true },
       round: { dataType: 'string', required: true },
-      status: { dataType: 'string', required: true },
+      status: { ref: 'Status', required: true },
       date: { dataType: 'string', required: true },
       time: { dataType: 'string', required: true },
       stadium: { dataType: 'string', required: true },
@@ -55,6 +60,18 @@ const models: TsoaRoute.Models = {
       note: { dataType: 'string', required: true },
     },
     additionalProperties: false,
+  },
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  Season: {
+    dataType: 'refEnum',
+    enums: [
+      2022, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012,
+    ],
+  },
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  FixtureSortBy: {
+    dataType: 'refEnum',
+    enums: ['round', 'date'],
   },
   // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
   PlayerEntity: {
@@ -108,7 +125,7 @@ const models: TsoaRoute.Models = {
       manager: { dataType: 'string', required: true },
       founded: { dataType: 'string', required: true },
       active: { dataType: 'boolean', required: true },
-      tier: { dataType: 'string', required: true },
+      tier: { ref: 'Tier', required: true },
     },
     additionalProperties: false,
   },
@@ -162,31 +179,21 @@ export function RegisterRoutes(app: express.Router) {
       next: any
     ) {
       const args = {
-        limit: {
-          in: 'query',
-          name: 'limit',
-          required: true,
-          dataType: 'double',
-        },
-        season: {
-          in: 'query',
-          name: 'season',
-          required: true,
-          dataType: 'double',
-        },
+        limit: { default: 100, in: 'query', name: 'limit', dataType: 'double' },
+        season: { default: 2022, in: 'query', name: 'season', ref: 'Season' },
         sortBy: {
+          default: 'date',
           in: 'query',
           name: 'sortBy',
-          required: true,
-          dataType: 'string',
+          ref: 'FixtureSortBy',
         },
         status: {
+          default: 'SCHEDULED',
           in: 'query',
           name: 'status',
-          required: true,
-          dataType: 'string',
+          ref: 'Status',
         },
-        tier: { in: 'query', name: 'tier', required: true, ref: 'Tier' },
+        tier: { default: 'TIER_ONE', in: 'query', name: 'tier', ref: 'Tier' },
       };
 
       // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -335,12 +342,7 @@ export function RegisterRoutes(app: express.Router) {
     ) {
       const args = {
         tier: { in: 'query', name: 'tier', required: true, ref: 'Tier' },
-        season: {
-          in: 'query',
-          name: 'season',
-          required: true,
-          dataType: 'double',
-        },
+        season: { in: 'query', name: 'season', required: true, ref: 'Season' },
       };
 
       // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -415,7 +417,9 @@ export function RegisterRoutes(app: express.Router) {
     ...fetchMiddlewares<RequestHandler>(TeamsController.prototype.getTeams),
 
     function TeamsController_getTeams(request: any, response: any, next: any) {
-      const args = {};
+      const args = {
+        tier: { in: 'query', name: 'tier', required: true, ref: 'Tier' },
+      };
 
       // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 

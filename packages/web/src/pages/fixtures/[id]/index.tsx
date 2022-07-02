@@ -3,13 +3,13 @@ import get from 'lodash/get';
 import isNil from 'lodash/isNil';
 import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
 import React from 'react';
+import { Fixture as FixtureType } from 'shared';
 import { query } from '../../../apollo';
 import { GET_FIXTURE } from '../../../apollo/schemas';
 import Fixture from '../../../components/molecules/Fixture';
 import Logo from '../../../components/atoms/Logo';
 import PageTemplate from '../../../components/templates/PageTemplate';
 import { messagesByLocales } from '../../../messages/fixtures';
-import { Fixture as FixtureType } from '../../../types';
 import { useTranslations } from 'next-intl';
 
 type TeamFormProps = { teamId: string; form: FixtureType[]; side: string };

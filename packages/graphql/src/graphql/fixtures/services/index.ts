@@ -1,20 +1,26 @@
 import isNil from 'lodash/isNil';
 import { API_KEY_VLEAGUE, SERVER_API } from '../../../configs';
-import { axiosGet, logger } from 'shared';
-import { Tier } from '../../types';
-import { Fixture, Status } from '../types';
+import {
+  axiosGet,
+  logger,
+  Tier,
+  Status,
+  Fixture,
+  Season,
+  FixtureSortBy,
+} from 'shared';
 
 export const getFixtures = async ({
-  limit,
-  season = new Date().getFullYear(),
-  sortBy,
-  status,
+  limit = 100,
+  season = Season.SEASON_CURRENT,
+  sortBy = FixtureSortBy.DATE,
+  status = Status.SCHEDULED,
   teamId,
-  tier,
+  tier = Tier.TIER_ONE,
 }: {
   limit?: number;
-  season?: number;
-  sortBy?: string;
+  season?: Season;
+  sortBy?: FixtureSortBy;
   status?: Status;
   teamId?: string;
   tier?: Tier;

@@ -1,11 +1,11 @@
 import get from 'lodash/get';
 import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
 import { useTranslations } from 'next-intl';
+import { Player, Team as TeamType } from 'shared';
 import { query } from '../../../../apollo';
 import { GET_TEAM_WITH_PLAYERS } from '../../../../apollo/schemas';
 import TeamTemplate from '../../../../components/templates/TeamTemplate';
 import { messagesByLocales } from '../../../../messages/team';
-import { Player, Team as TeamType } from '../../../../types';
 
 const TeamSquad: NextPage<{ team: TeamType; players: Player[] }> = ({
   players = [],

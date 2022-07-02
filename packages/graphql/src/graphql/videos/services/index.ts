@@ -1,8 +1,7 @@
 import get from 'lodash/get';
 import isNil from 'lodash/isNil';
-import { axiosGet, logger } from 'shared';
+import { axiosGet, logger, Video } from 'shared';
 import { SERVER_API, API_KEY_VLEAGUE } from '../../../configs';
-import { Video } from '../types';
 
 export const getVideos = async ({
   maxResults = 4,

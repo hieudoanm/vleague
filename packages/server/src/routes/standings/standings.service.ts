@@ -1,14 +1,13 @@
+import { Season, StandingEntity, Tier } from 'shared';
 import { getRepository } from '../../libs/postgre';
-import { Tier } from '../../types';
-import { StandingEntity } from './standings.entity';
 
 export const getStandings = async ({
   tier = Tier.TIER_ONE,
-  season = new Date().getFullYear(),
+  season = Season.SEASON_CURRENT,
 }: {
   tier: Tier;
-  season: number;
-}) => {
+  season: Season;
+}): Promise<StandingEntity[]> => {
   const repository = await getRepository(StandingEntity);
   const standings = await repository.find({
     where: { competitionTier: tier, season },
@@ -18,7 +17,7 @@ export const getStandings = async ({
 
 export const getStanding = async ({
   tier = Tier.TIER_ONE,
-  season = new Date().getFullYear(),
+  season = Season.SEASON_CURRENT,
   teamId = '',
 }: {
   tier: Tier;

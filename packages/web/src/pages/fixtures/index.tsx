@@ -3,13 +3,13 @@ import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/router';
 import React, { useCallback, useState } from 'react';
+import { Fixture, Tier } from 'shared';
 import { query } from '../../apollo';
 import { GET_FIXTURES } from '../../apollo/schemas';
 import FixturesTemplate from '../../components/templates/FixturesTemplate';
 import { CURRENT_SEASON, CURRENT_TIER, SEASONS, TIERS } from '../../constants';
 import useUpdateEffect from '../../hooks/use-update-effect';
 import { messagesByLocales } from '../../messages/fixtures';
-import { Fixture, Tier } from '../../types';
 
 export type FixturesPageProps = {
   tier: string;

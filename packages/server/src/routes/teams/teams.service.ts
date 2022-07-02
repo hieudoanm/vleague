@@ -1,12 +1,16 @@
+import { TeamEntity, Tier } from 'shared';
 import { getRepository } from '../../libs/postgre';
-import { TeamEntity } from './teams.entity';
 
-export const getTeams = async (): Promise<TeamEntity[]> => {
+export const getTeams = async ({
+  tier,
+}: {
+  tier: Tier;
+}): Promise<TeamEntity[]> => {
   const repository = await getRepository(TeamEntity);
-  return repository.find();
+  return repository.find({ where: { tier } });
 };
 
-export const getTeam = async (teamId: string) => {
+export const getTeam = async (teamId: string): Promise<TeamEntity | null> => {
   const repository = await getRepository(TeamEntity);
   return repository.findOne({ where: { teamId } });
 };

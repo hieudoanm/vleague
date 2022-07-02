@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import Stadium from '@mui/icons-material/Stadium';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { Fixture as FixtureType } from '../../../types';
+import { Fixture as FixtureType } from 'shared';
 import Fixture from '../../molecules/Fixture';
 
 export type FixtureDetailsProps = { fixture: FixtureType };

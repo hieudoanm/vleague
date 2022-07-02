@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { Standing } from '../../../types';
+import { Standing } from 'shared';
 import Logo from '../../atoms/Logo';
 
 const POSITIONS = [1, 3];

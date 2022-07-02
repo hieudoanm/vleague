@@ -1,11 +1,11 @@
 import get from 'lodash/get';
 import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
+import { Standing, Team as TeamType } from 'shared';
 import { GET_TEAM_WITH_STANDINGS } from '../../../apollo/schemas';
 import { query } from '../../../apollo';
 import TeamTemplate from '../../../components/templates/TeamTemplate';
 import LeagueTable from '../../../components/organisms/LeagueTable';
 import { messagesByLocales } from '../../../messages/team';
-import { Standing, Team as TeamType } from '../../../types';
 
 const TeamPage: NextPage<{ standings: Standing[]; team: TeamType }> = ({
   standings,

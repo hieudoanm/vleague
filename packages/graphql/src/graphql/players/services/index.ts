@@ -1,8 +1,7 @@
 import get from 'lodash/get';
 import isNil from 'lodash/isNil';
-import { axiosGet, logger } from 'shared';
+import { axiosGet, logger, Player } from 'shared';
 import { SERVER_API, API_KEY_VLEAGUE } from '../../../configs';
-import { Player } from '../types';
 
 export const getPlayers = async ({
   limit = 50,

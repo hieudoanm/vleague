@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Tier } from 'shared';
 import { resolvers } from '.';
 
 jest.mock('axios');
@@ -20,7 +21,7 @@ describe('standings resolvers', () => {
         jest.spyOn(axios, 'get').mockResolvedValueOnce({ data: { data: [] } });
         const standings = await resolvers.Team.standings({
           teamId: 'teamId',
-          tier: 'TIER_ONE',
+          tier: Tier.TIER_ONE,
         });
         expect(standings).toEqual([]);
       });

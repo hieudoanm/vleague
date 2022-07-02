@@ -1,5 +1,5 @@
+import { User } from 'shared';
 import { getUser, createUser } from '../services';
-import { User } from '../types';
 
 export const resolvers = {
   Query: {

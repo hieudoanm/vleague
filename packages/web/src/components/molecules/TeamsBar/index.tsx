@@ -2,7 +2,7 @@ import Container from '@mui/material/Container';
 import Link from 'next/link';
 import React from 'react';
 import Logo from '../../atoms/Logo';
-import { Team } from '../../../types';
+import { Team } from 'shared';
 
 export type TeamsBarProps = { teams: Team[] };
 

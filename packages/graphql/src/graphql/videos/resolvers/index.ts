@@ -1,5 +1,5 @@
+import { Video } from 'shared';
 import { getVideos } from '../services';
-import { Video } from '../types';
 
 export const resolvers = {
   Query: {

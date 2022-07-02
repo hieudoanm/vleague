@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Post, Query, Route, Tags } from 'tsoa';
-import { UserEntity } from './users.entity';
+import { UserEntity } from 'shared';
 import { createUser, getUser } from './users.service';
 
 @Route('api/users')

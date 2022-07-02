@@ -1,5 +1,5 @@
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import { Video } from '../../../types';
+import { Video } from 'shared';
 
 export type VideosProps = { videos: Video[] };
 

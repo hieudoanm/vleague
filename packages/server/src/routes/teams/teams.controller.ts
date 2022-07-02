@@ -1,16 +1,16 @@
-import { Controller, Get, Path, Route, Tags } from 'tsoa';
-import { TeamEntity } from './teams.entity';
+import { TeamEntity, Tier } from 'shared';
+import { Controller, Get, Path, Query, Route, Tags } from 'tsoa';
 import { getTeams, getTeam } from './teams.service';
 
 @Route('api/teams')
 @Tags('Teams')
 export class TeamsController extends Controller {
   @Get()
-  public async getTeams(): Promise<{
+  public async getTeams(@Query('tier') tier: Tier): Promise<{
     total: number;
     data: TeamEntity[];
   }> {
-    const teams = await getTeams();
+    const teams = await getTeams({ tier });
     return { total: teams.length, data: teams };
   }
 

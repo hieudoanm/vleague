@@ -1,9 +1,9 @@
 import React from 'react';
-import { CDN_IMAGE_URL } from '../../../constants';
+import { CDN_IMAGE_URL } from '../../../configs';
 
 export type LogoProps = { teamId: string; className?: string };
 
-const Logo: React.FC<LogoProps> = ({ teamId, className = '' }) => {
+export const Logo: React.FC<LogoProps> = ({ teamId, className = '' }) => {
   const backgroundImage: string = [
     `url(${CDN_IMAGE_URL}/teams/png/${teamId}.png)`,
     `url(${CDN_IMAGE_URL}/teams/jpg/${teamId}.jpg)`,

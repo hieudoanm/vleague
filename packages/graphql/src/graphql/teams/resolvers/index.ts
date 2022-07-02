@@ -1,6 +1,5 @@
-import { Tier } from '../../types';
+import { Season, Team, Tier } from 'shared';
 import { getTeam, getTeams } from '../services';
-import { Team } from '../types';
 
 export const resolvers = {
   Query: {
@@ -9,7 +8,10 @@ export const resolvers = {
     },
     teams: async (
       _: unknown,
-      { tier, season }: { tier: Tier; season: number }
+      {
+        tier = Tier.TIER_ONE,
+        season = Season.SEASON_CURRENT,
+      }: { tier: Tier; season: Season }
     ): Promise<Team[]> => {
       return getTeams({ tier, season });
     },

@@ -9,7 +9,7 @@ import Container from '@mui/material/Container';
 import isNil from 'lodash/isNil';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { Team } from '../../../types';
+import { Team } from 'shared';
 import Logo from '../../atoms/Logo';
 import PageTemplate from '../PageTemplate';
 

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { FixtureSortBy } from 'shared';
 import { getFixture, getFixtures } from '.';
 
 jest.mock('axios');
@@ -7,7 +8,10 @@ describe('fixtures service', () => {
   describe('getFixtures', () => {
     it('should return fixtures', async () => {
       jest.spyOn(axios, 'get').mockResolvedValueOnce({ data: { data: [] } });
-      const fixtures = await getFixtures({ limit: 50, sortBy: 'date' });
+      const fixtures = await getFixtures({
+        limit: 50,
+        sortBy: FixtureSortBy.DATE,
+      });
       expect(fixtures).toEqual([]);
     });
   });

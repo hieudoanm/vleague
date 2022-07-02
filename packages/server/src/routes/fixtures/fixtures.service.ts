@@ -1,6 +1,5 @@
+import { FixtureEntity, FixtureSortBy, Season, Status, Tier } from 'shared';
 import { getRepository } from '../../libs/postgre';
-import { Tier } from '../../types';
-import { FixtureEntity } from './fixtures.entity';
 
 export const getFixtures = async ({
   limit,
@@ -10,9 +9,9 @@ export const getFixtures = async ({
   tier,
 }: {
   limit: number;
-  season: number;
-  sortBy: string;
-  status: string;
+  season: Season;
+  sortBy: FixtureSortBy;
+  status: Status;
   tier: Tier;
 }) => {
   const repository = await getRepository(FixtureEntity);

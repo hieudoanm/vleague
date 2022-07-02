@@ -23,7 +23,7 @@ export const axiosPost = <T, D>(
 ): Promise<T> => {
   return new Promise((resolve, reject) => {
     axios
-      .post<T, any, D>(url, data, config)
+      .post<T, AxiosResponse<T>, D>(url, data, config)
       .then((response: AxiosResponse<T>) => {
         resolve(response.data);
       })

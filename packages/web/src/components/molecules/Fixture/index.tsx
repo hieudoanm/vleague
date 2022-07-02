@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Fixture as FixtureType } from '../../../types';
+import { Fixture as FixtureType } from 'shared';
 import Logo from '../../atoms/Logo';
 
 export type FixtureStatusProps = { fixture: FixtureType };

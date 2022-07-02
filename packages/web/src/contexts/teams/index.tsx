@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { query } from '../../apollo';
 import { GET_TEAMS } from '../../apollo/schemas';
 import { CURRENT_SEASON, CURRENT_TIER } from '../../constants';
-import { Team } from '../../types';
+import { Team } from 'shared';
 
 export const TeamsContext = React.createContext([] as Team[]);
 

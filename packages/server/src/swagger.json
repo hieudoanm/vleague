@@ -7,7 +7,11 @@
     "responses": {},
     "schemas": {
       "Tier": {
-        "enum": ["TIER_CUP", "TIER_ONE", "TIER_TWO"],
+        "enum": ["TIER_CUP", "TIER_ONE", "TIER_TWO", "TIER_THREE"],
+        "type": "string"
+      },
+      "Status": {
+        "enum": ["CANCELLED", "FINISHED", "SCHEDULED", "LIVE"],
         "type": "string"
       },
       "FixtureEntity": {
@@ -29,7 +33,7 @@
             "type": "string"
           },
           "status": {
-            "type": "string"
+            "$ref": "#/components/schemas/Status"
           },
           "date": {
             "type": "string"
@@ -84,6 +88,16 @@
         ],
         "type": "object",
         "additionalProperties": false
+      },
+      "Season": {
+        "enum": [
+          2022, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012
+        ],
+        "type": "number"
+      },
+      "FixtureSortBy": {
+        "enum": ["round", "date"],
+        "type": "string"
       },
       "PlayerEntity": {
         "properties": {
@@ -244,7 +258,7 @@
             "type": "boolean"
           },
           "tier": {
-            "type": "string"
+            "$ref": "#/components/schemas/Tier"
           }
         },
         "required": [
@@ -361,8 +375,9 @@
           {
             "in": "query",
             "name": "limit",
-            "required": true,
+            "required": false,
             "schema": {
+              "default": 100,
               "format": "double",
               "type": "number"
             }
@@ -370,32 +385,31 @@
           {
             "in": "query",
             "name": "season",
-            "required": true,
+            "required": false,
             "schema": {
-              "format": "double",
-              "type": "number"
+              "$ref": "#/components/schemas/Season"
             }
           },
           {
             "in": "query",
             "name": "sortBy",
-            "required": true,
+            "required": false,
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/FixtureSortBy"
             }
           },
           {
             "in": "query",
             "name": "status",
-            "required": true,
+            "required": false,
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/Status"
             }
           },
           {
             "in": "query",
             "name": "tier",
-            "required": true,
+            "required": false,
             "schema": {
               "$ref": "#/components/schemas/Tier"
             }
@@ -584,8 +598,7 @@
             "name": "season",
             "required": true,
             "schema": {
-              "format": "double",
-              "type": "number"
+              "$ref": "#/components/schemas/Season"
             }
           }
         ]
@@ -673,7 +686,16 @@
         },
         "tags": ["Teams"],
         "security": [],
-        "parameters": []
+        "parameters": [
+          {
+            "in": "query",
+            "name": "tier",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Tier"
+            }
+          }
+        ]
       }
     },
     "/api/teams/{teamId}": {

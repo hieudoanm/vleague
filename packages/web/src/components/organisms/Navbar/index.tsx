@@ -1,5 +1,5 @@
 import React from 'react';
-import { Team } from '../../../types';
+import { Team } from 'shared';
 import ResponsiveAppBar from '../../molecules/ResponsiveAppBar';
 import TeamsBar from '../../molecules/TeamsBar';
 

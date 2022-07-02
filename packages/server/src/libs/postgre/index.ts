@@ -8,11 +8,13 @@ import {
   DATABASE_PORT,
   DATABASE_USER,
 } from '../../configs';
-import { FixtureEntity } from '../../routes/fixtures/fixtures.entity';
-import { PlayerEntity } from '../../routes/players/players.entity';
-import { StandingEntity } from '../../routes/standings/standings.entity';
-import { TeamEntity } from '../../routes/teams/teams.entity';
-import { UserEntity } from '../../routes/users/users.entity';
+import {
+  FixtureEntity,
+  PlayerEntity,
+  StandingEntity,
+  TeamEntity,
+  UserEntity,
+} from 'shared';
 
 let postgresDataSource: DataSource | null = null;
 

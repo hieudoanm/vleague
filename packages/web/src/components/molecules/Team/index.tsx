@@ -6,7 +6,7 @@ import CardContent from '@mui/material/CardContent';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import React from 'react';
-import { Standing } from '../../../types';
+import { Standing } from 'shared';
 import Logo from '../../atoms/Logo';
 
 export type TeamProps = {

@@ -1,9 +1,9 @@
 import ChevronLeft from '@mui/icons-material/ChevronLeft';
 import ChevronRight from '@mui/icons-material/ChevronRight';
 import React, { useState } from 'react';
-import { CDN_IMAGE_URL } from '../../../constants';
+import { CDN_IMAGE_URL } from '../../../configs';
 
-const Carousel: React.FC = () => {
+export const Carousel: React.FC = () => {
   const [count, setCount] = useState(0);
 
   return (

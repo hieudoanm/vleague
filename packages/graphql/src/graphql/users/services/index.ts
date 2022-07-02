@@ -1,8 +1,7 @@
 import get from 'lodash/get';
 import isNil from 'lodash/isNil';
-import { axiosGet, axiosPost, logger } from 'shared';
+import { axiosGet, axiosPost, logger, User } from 'shared';
 import { SERVER_API } from '../../../configs';
-import { User } from '../types';
 
 export const getUser = async (email: string): Promise<User> => {
   const urlSearchParams = new URLSearchParams();

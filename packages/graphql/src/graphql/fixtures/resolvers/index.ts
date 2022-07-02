@@ -1,8 +1,6 @@
 import get from 'lodash/get';
-import { Team } from '../../teams/types';
-import { Tier } from '../../types';
+import { Fixture, Status, Tier, Team, Season, FixtureSortBy } from 'shared';
 import { getFixture, getFixtures } from '../services';
-import { Fixture, Status } from '../types';
 
 export const resolvers = {
   Query: {
@@ -13,15 +11,15 @@ export const resolvers = {
       _: unknown,
       {
         limit,
-        season = new Date().getFullYear(),
-        sortBy,
-        status,
+        season = Season.SEASON_CURRENT,
+        sortBy = FixtureSortBy.DATE,
+        status = Status.SCHEDULED,
         teamId,
-        tier = 'TIER_ONE',
+        tier = Tier.TIER_ONE,
       }: {
         limit?: number;
-        season?: number;
-        sortBy?: string;
+        season?: Season;
+        sortBy?: FixtureSortBy;
         status?: Status;
         teamId?: string;
         tier?: Tier;
@@ -37,7 +35,7 @@ export const resolvers = {
       return getFixtures({
         teamId,
         tier,
-        status: 'SCHEDULED',
+        status: Status.SCHEDULED,
       });
     },
     results: async (parent: Pick<Team, 'teamId'>) => {
@@ -46,7 +44,7 @@ export const resolvers = {
       return getFixtures({
         teamId,
         tier,
-        status: 'FINISHED',
+        status: Status.FINISHED,
       });
     },
   },

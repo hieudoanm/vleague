@@ -2,13 +2,13 @@ import get from 'lodash/get';
 import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useCallback, useState } from 'react';
+import { Fixture, Tier } from 'shared';
 import { query } from '../../apollo';
 import { GET_FIXTURES } from '../../apollo/schemas';
 import FixturesTemplate from '../../components/templates/FixturesTemplate';
 import { CURRENT_SEASON, CURRENT_TIER, SEASONS, TIERS } from '../../constants';
 import { messagesByLocales } from '../../messages/results';
 import useUpdateEffect from '../../hooks/use-update-effect';
-import { Fixture, Tier } from '../../types';
 import { useTranslations } from 'next-intl';
 
 export type ResultsPageProps = {

@@ -4,6 +4,7 @@ import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/router';
 import { useCallback, useState } from 'react';
+import { Standing, Tier } from 'shared';
 import { query } from '../../apollo';
 import { GET_STANDINGS } from '../../apollo/schemas';
 import Filter from '../../components/organisms/LeagueFilter';
@@ -12,7 +13,6 @@ import PageTemplate from '../../components/templates/PageTemplate';
 import { CURRENT_SEASON, CURRENT_TIER, SEASONS, TIERS } from '../../constants';
 import useUpdateEffect from '../../hooks/use-update-effect';
 import { messagesByLocales } from '../../messages/tables';
-import { Standing, Tier } from '../../types';
 
 export type TablesPageProps = {
   tier: string;

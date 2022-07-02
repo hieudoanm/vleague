@@ -18,7 +18,7 @@
     "docs": "redoc-cli build ./src/swagger.json --output ./public/index.html --title \"V.League as a Service\"",
     "lint": "eslint . --fix --ext .ts",
     "start": "node .",
-    "test": "jest"
+    "test": "jest --detectOpenHandles"
   },
   "dependencies": {
     "express": "4.18.1",
@@ -28,7 +28,8 @@
     "shared": "0.0.1",
     "swagger-ui-express": "4.4.0",
     "tsoa": "4.1.0",
-    "typeorm": "0.3.7"
+    "typeorm": "0.3.7",
+    "uuid": "8.3.2"
   },
   "devDependencies": {
     "@types/http-errors": "1.8.2",
@@ -44,6 +45,8 @@
     "nodemon": "2.0.18",
     "redoc-cli": "0.13.16",
     "ts-jest": "28.0.5",
-    "typescript": "4.7.4"
+    "typescript": "4.7.4",
+    "webpack": "5.73.0",
+    "webpack-cli": "4.10.0"
   }
 }

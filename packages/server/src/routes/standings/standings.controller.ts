@@ -1,6 +1,5 @@
+import { Season, StandingEntity, Tier } from 'shared';
 import { Controller, Get, Query, Route, Tags } from 'tsoa';
-import { Tier } from '../../types';
-import { StandingEntity } from './standings.entity';
 import { getStandings, getStanding } from './standings.service';
 
 @Route('api/standings')
@@ -9,7 +8,7 @@ export class StandingsController extends Controller {
   @Get()
   public async getStandings(
     @Query('tier') tier: Tier,
-    @Query('season') season: number
+    @Query('season') season: Season
   ): Promise<{
     total: number;
     data: StandingEntity[];

@@ -1,5 +1,5 @@
+import { PlayerEntity } from 'shared';
 import { getRepository } from '../../libs/postgre';
-import { PlayerEntity } from './players.entity';
 
 export const getPlayers = async ({
   skip = 0,
@@ -9,7 +9,7 @@ export const getPlayers = async ({
   skip: number;
   limit: number;
   teamId?: string;
-}) => {
+}): Promise<PlayerEntity[]> => {
   const repository = await getRepository(PlayerEntity);
   let where = {};
   where = teamId ? { ...where, teamId } : where;
@@ -17,7 +17,9 @@ export const getPlayers = async ({
   return players;
 };
 
-export const getPlayer = async (playerId: string) => {
+export const getPlayer = async (
+  playerId: string
+): Promise<PlayerEntity | null> => {
   const repository = await getRepository(PlayerEntity);
   const player = await repository.findOne({ where: { playerId } });
   return player;

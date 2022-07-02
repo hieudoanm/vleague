@@ -1,7 +1,6 @@
 import get from 'lodash/get';
-import { Team } from '../../teams/types';
+import { Player, Team } from 'shared';
 import { getPlayers } from '../services';
-import { Player } from '../types';
 
 export const resolvers = {
   Query: {

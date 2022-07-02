@@ -8,7 +8,7 @@ exports[`Carousel render default 1`] = `
   >
     <div
       class="absolute w-full h-full bg-cover bg-center transition-all top-0 left-0"
-      style="z-index: 0; background-image: url(https://raw.githubusercontent.com/hieudoanm/v.league-public/master/images/intros/intro-3.png);"
+      style="z-index: 0; background-image: url(https://raw.githubusercontent.com/hieudoanm/v.league/master/images/intros/intro-3.png);"
     >
       <div
         class="w-full h-full bg-gray-100/20"
@@ -16,7 +16,7 @@ exports[`Carousel render default 1`] = `
     </div>
     <div
       class="absolute w-full h-full bg-cover bg-center transition-all top-0 left-0"
-      style="z-index: 10; background-image: url(https://raw.githubusercontent.com/hieudoanm/v.league-public/master/images/intros/intro-2.png);"
+      style="z-index: 10; background-image: url(https://raw.githubusercontent.com/hieudoanm/v.league/master/images/intros/intro-2.png);"
     >
       <div
         class="w-full h-full bg-gray-100/20"
@@ -24,7 +24,7 @@ exports[`Carousel render default 1`] = `
     </div>
     <div
       class="absolute w-full h-full bg-cover bg-center transition-all top-0 left-0"
-      style="z-index: 20; background-image: url(https://raw.githubusercontent.com/hieudoanm/v.league-public/master/images/intros/intro-1.png);"
+      style="z-index: 20; background-image: url(https://raw.githubusercontent.com/hieudoanm/v.league/master/images/intros/intro-1.png);"
     >
       <div
         class="w-full h-full bg-gray-100/20"

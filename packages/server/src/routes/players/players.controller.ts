@@ -1,5 +1,5 @@
 import { Controller, Get, Path, Query, Route, Tags } from 'tsoa';
-import { PlayerEntity } from './players.entity';
+import { PlayerEntity } from 'shared';
 import { getPlayer, getPlayers } from './players.service';
 
 @Route('api/players')
@@ -14,8 +14,8 @@ export class PlayersController extends Controller {
     total: number;
     data: PlayerEntity[];
   }> {
-    const fixtures = await getPlayers({ skip, limit, teamId });
-    return { total: fixtures.length, data: fixtures };
+    const players = await getPlayers({ skip, limit, teamId });
+    return { total: players.length, data: players };
   }
 
   @Get(':playerId')

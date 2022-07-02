@@ -1,5 +1,5 @@
 import Container from '@mui/material/Container';
-import { Fixture } from '../../../types';
+import { Fixture } from 'shared';
 import Filter from '../../organisms/LeagueFilter';
 import FixturesByRound from '../../organisms/FixturesByRound';
 import PageTemplate from '../PageTemplate';

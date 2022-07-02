@@ -8,28 +8,24 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build:data": "yarn workspace data build",
     "build:server": "yarn workspace server build",
     "build:shared": "yarn workspace shared build",
     "build:web": "yarn workspace web build",
-    "build": "yarn build:shared && yarn build:server && yarn build:web && yarn build:data",
-    "dev:data": "yarn workspace data dev",
+    "build": "yarn build:shared && yarn build:server && yarn build:web",
     "dev:graphql": "yarn workspace graphql dev",
     "dev:server": "yarn workspace server dev",
     "dev:web": "yarn workspace web dev",
-    "dev": "concurrently --kill-others-on-fail \"yarn dev:data\" \"yarn dev:server\" \"yarn dev:graphql\" \"yarn dev:web\"",
-    "lint:data": "yarn workspace data lint",
+    "dev": "concurrently --kill-others-on-fail \"yarn dev:server\" \"yarn dev:graphql\" \"yarn dev:web\"",
     "lint:graphql": "yarn workspace graphql lint",
     "lint:server": "yarn workspace server lint",
     "lint:shared": "yarn workspace shared lint",
     "lint:web": "yarn workspace web lint",
-    "lint": "yarn lint:shared && yarn lint:data && yarn lint:graphql && yarn lint:server && yarn lint:web",
-    "test:data": "yarn workspace data test",
+    "lint": "yarn lint:shared && yarn lint:graphql && yarn lint:server && yarn lint:web",
     "test:graphql": "yarn workspace graphql test",
     "test:server": "yarn workspace server test",
     "test:shared": "yarn workspace shared test",
     "test:web": "yarn workspace web test",
-    "test": "yarn test:shared && yarn test:data && yarn test:graphql && yarn test:server && yarn test:web"
+    "test": "yarn test:shared && yarn test:graphql && yarn test:server && yarn test:web"
   },
   "dependencies": {
     "concurrently": "7.2.2"

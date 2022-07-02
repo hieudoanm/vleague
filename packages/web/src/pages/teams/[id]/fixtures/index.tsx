@@ -1,11 +1,11 @@
 import get from 'lodash/get';
 import { GetServerSideProps, GetServerSidePropsContext, NextPage } from 'next';
+import { Fixture, Team as TeamType } from 'shared';
 import { query } from '../../../../apollo';
 import { GET_TEAM_WITH_FIXTURES } from '../../../../apollo/schemas';
 import TeamTemplate from '../../../../components/templates/TeamTemplate';
 import FixturesByRound from '../../../../components/organisms/FixturesByRound';
 import { messagesByLocales } from '../../../../messages/team';
-import { Fixture, Team as TeamType } from '../../../../types';
 
 export type TeamFixturesProps = { fixtures: Fixture[]; team: TeamType };
 

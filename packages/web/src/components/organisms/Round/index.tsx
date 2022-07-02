@@ -4,7 +4,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import { useTranslations } from 'next-intl';
 import React from 'react';
-import { Fixture as FixtureType } from '../../../types';
+import { Fixture as FixtureType } from 'shared';
 import FixtureDetails from '../FixtureDetails';
 
 export type RoundProps = {

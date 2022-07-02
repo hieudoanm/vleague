@@ -7,9 +7,14 @@
   "repository": "git@github.com:hieudoanm/vleague.git",
   "author": "hieudoanm <hieumdoan@gmail.com>",
   "private": true,
+  "engines": {
+    "node": "16",
+    "npm": "8",
+    "yarn": "1"
+  },
   "scripts": {
     "dev": "kill-port 5000 && nodemon ./src/server.ts",
-    "test": "jest",
+    "test": "jest --detectOpenHandles",
     "lint": "eslint . --fix --ext .ts"
   },
   "dependencies": {

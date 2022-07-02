@@ -1,5 +1,5 @@
 import React from 'react';
-import { Standing } from '../../../types';
+import { Standing } from 'shared';
 import Team from '../../molecules/Team';
 
 export type TeamsProps = { teams: Standing[] };

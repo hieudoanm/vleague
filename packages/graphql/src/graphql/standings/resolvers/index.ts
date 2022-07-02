@@ -1,18 +1,16 @@
 import get from 'lodash/get';
-import { Team } from '../../teams/types';
-import { Tier } from '../../types';
+import { Season, Tier, Standing, Team } from 'shared';
 import { getStandings } from '../services';
-import { Standing } from '../types';
 
 export const resolvers = {
   Query: {
     standings: async (
       _: unknown,
       {
-        season = new Date().getFullYear(),
+        season = Season.SEASON_CURRENT,
         teamId,
-        tier = 'TIER_ONE',
-      }: { season?: number; teamId?: string; tier?: Tier }
+        tier = Tier.TIER_ONE,
+      }: { season?: Season; teamId?: string; tier?: Tier }
     ): Promise<Standing[]> => {
       return getStandings({ season, teamId, tier });
     },
