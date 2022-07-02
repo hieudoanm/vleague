@@ -1,5 +1,5 @@
-import { Entity, Column, PrimaryColumn } from 'typeorm';
 import { Status, Tier } from '../types';
+import { Entity, Column, PrimaryColumn } from 'typeorm';
 
 @Entity({ schema: 'vleague', name: 'fixture' })
 export class FixtureEntity {
