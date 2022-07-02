@@ -1,4 +1,4 @@
-import { Status, Tier } from 'shared';
+import { Status, Tier } from '../types';
 import { Entity, Column, PrimaryColumn } from 'typeorm';
 
 @Entity({ schema: 'vleague', name: 'fixture' })
