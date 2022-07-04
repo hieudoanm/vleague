@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:18
 
 LABEL author hieudoanm
 
@@ -6,7 +6,7 @@ COPY . .
 
 RUN npm ci && npm run build
 
-FROM node:16-alpine
+FROM node:18-alpine
 
 USER node
 
