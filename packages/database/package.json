@@ -33,7 +33,7 @@
     "typeorm": "0.3.7"
   },
   "devDependencies": {
-    "@types/jest": "28.1.4",
+    "@types/jest": "28.1.5",
     "@types/json2csv": "5.0.3",
     "@types/lodash": "4.14.182",
     "@types/node": "18.0.0",
