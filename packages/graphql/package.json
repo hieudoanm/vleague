@@ -8,8 +8,8 @@
   "author": "hieudoanm <hieumdoan@gmail.com>",
   "private": true,
   "engines": {
-    "node": "16",
-    "npm": "8",
+    "node": ">= 14",
+    "npm": ">= 8",
     "yarn": "1"
   },
   "scripts": {
