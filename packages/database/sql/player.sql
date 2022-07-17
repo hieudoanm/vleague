@@ -1,9 +1,8 @@
 DROP TABLE IF EXISTS vleague.player;
-
 CREATE TABLE IF NOT EXISTS vleague.player (
     player_id VARCHAR(100) UNIQUE PRIMARY KEY,
     -- Position
-    shirt_number INT DEFAULT 0,
+    shirt_number INTEGER DEFAULT 0,
     position VARCHAR(100) DEFAULT '',
     -- Info
     full_name VARCHAR(100) DEFAULT '',

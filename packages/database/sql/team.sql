@@ -1,19 +1,18 @@
 DROP TABLE IF EXISTS vleague.team;
-
 CREATE TABLE vleague.team (
-    team_id varchar(100) UNIQUE PRIMARY KEY,
+    team_id VARCHAR(100) UNIQUE PRIMARY KEY,
     -- Name
-    name varchar(100) DEFAULT '',
-    full_name varchar(100) DEFAULT '',
+    name VARCHAR(100) DEFAULT '',
+    full_name VARCHAR(100) DEFAULT '',
     -- Place
-    stadium varchar(100) DEFAULT '',
-    province varchar(100) DEFAULT '',
+    stadium VARCHAR(100) DEFAULT '',
+    province VARCHAR(100) DEFAULT '',
     -- Leader
-    chairman varchar(100) DEFAULT '',
-    manager varchar(100) DEFAULT '',
+    chairman VARCHAR(100) DEFAULT '',
+    manager VARCHAR(100) DEFAULT '',
     -- Info
-    founded varchar(100) DEFAULT '',
-    active boolean DEFAULT false,
+    founded VARCHAR(100) DEFAULT '',
+    active BOOLEAN DEFAULT false,
     -- Competition
-    tier varchar(100) DEFAULT ''
+    tier VARCHAR(100) DEFAULT ''
 );

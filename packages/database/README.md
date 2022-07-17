@@ -1,34 +1,106 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# (Postgre) SQL
 
-## Getting Started
+## Aggregate Functions
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
+```sql
+-- COUNT
+SELECT COUNT(*) FROM table_name;
+-- SUM
+SELECT SUM(column_name) FROM table_name;
+-- MIN
+SELECT MIN(column_name) FROM table_name;
+-- MAX
+SELECT MAX(column_name) FROM table_name;
+-- AVG
+SELECT AVG(column_name) FROM table_name;
+-- ROUND
+SELECT ROUND(column_name, int) FROM table_name;
+-- GROUP BY
+SELECT group_column_name, AVG(column_name) FROM table_name GROUP BY group_column_name;
+-- HAVING (e.g.)
+SELECT price,
+   ROUND(AVG(downloads)),
+   COUNT(*)
+FROM fake_apps
+GROUP BY price
+HAVING COUNT(*) > 10;
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Multiple Tables
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```sql
+-- (INNER) JOIN
+SELECT * FROM table_name_1 JOIN table_name_2 ON table_name_1.column_name = table_name_2.column_name;
+-- LEFT JOIN
+SELECT * FROM table_name_1 LEFT JOIN table_name_2 ON table_name_1.column_name = table_name_2.column_name;
+-- CROSS JOIN
+SELECT * FROM table_name_1 CROSS JOIN table_name_2;
+-- UNION
+SELECT * FROM table_name_1 UNION SELECT * FROM table_name_2;
+-- WITH (e.g.)
+WITH previous_query AS (
+  SELECT customer_id,
+    COUNT(subscription_id) AS 'subscriptions'
+  FROM orders
+  GROUP BY customer_id
+)
+SELECT customers.customer_name, previous_query.subscriptions
+FROM previous_query
+JOIN customers
+ON previous_query.customer_id = customers.customer_id;
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Query Manipulation
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```sql
+-- Create --
+CREATE TABLE table_name (
+  column_name DATA_TYPE PRIMARY KEY, -- uniquely identify
+  column_name DATA_TYPE UNIQUE, -- A table can have multiple UNIQUE rows.
+  column_name DATA_TYPE NOT NULL, -- column must have a value.
+  column_name DATA_TYPE DEFAULT "" -- column takes an additional argument that will be the assumed value for an inserted row if the new row does not specify a value for that column.
+);
+-- Insert--
+INSERT INTO table_name (column_name, column_name, column_name) VALUES (value, value, value);
+-- Add new column to table --
+ALTER TABLE table_name ADD COLUMN column_name DATA_TYPE;
+-- Update --
+UPDATE table_name SET column_name = value WHERE column_name = value;
+-- Delete --
+DELETE FROM table_name WHERE column_name = value;
+-- Query all columns --
+SELECT * FROM table_name;
+-- Query by (list of) column(s) --
+SELECT column_name, column_name FROM table_name;
+-- AS
+SELECT column_name AS "Display Name", column_name AS "Display Name" FROM table_name
+-- DISTINCT
+SELECT DISTINCT column_name FROM table_name;
+-- WHERE
+SELECT * FROM table_name WHERE column_name (=|!=|>|<|>=|<=) value;
+-- LIKE 1 (_ for wildcard)
+SELECT * FROM table_name WHERE column_name LIKE 'va_ue';
+-- LIKE 2 (% for wildcard)
+SELECT * FROM table_name WHERE column_name LIKE '%value%';
+-- NULL
+SELECT * FROM table_name WHERE column_name IS NULL;
+SELECT * FROM table_name WHERE column_name IS NOT NULL;
+-- BETWEEN
+SELECT * FROM table_name WHERE column_name BETWEEN value1 AND value2;
+-- AND
+SELECT * FROM table_name WHERE column_name = value1 AND column_name = value2;
+-- OR
+SELECT * FROM table_name WHERE column_name = value1 OR column_name = value2;
+-- ORDER BY
+SELECT * FROM table_name ORDER BY column_name (DESC);
+-- LIMIT
+SELECT * FROM table_name LIMIT int;
+-- CASE
+SELECT name,
+  CASE
+    WHEN column_name = value1 THEN new_value1
+    WHEN column_name = value2 THEN new_value2
+    ELSE default_value
+  END AS "Display Name"
+FROM table_name;
+```
