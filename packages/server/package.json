@@ -18,7 +18,7 @@
     "docs": "redoc-cli build ./src/swagger.json --output ./public/index.html --title \"V.League as a Service\"",
     "lint": "eslint . --fix --ext .ts",
     "start": "node .",
-    "test": "jest --detectOpenHandles"
+    "test": "jest"
   },
   "dependencies": {
     "express": "4.18.1",

@@ -14,7 +14,7 @@
   },
   "scripts": {
     "dev": "kill-port 5000 && nodemon ./src/server.ts",
-    "test": "jest --detectOpenHandles",
+    "test": "jest",
     "lint": "eslint . --fix --ext .ts"
   },
   "dependencies": {
