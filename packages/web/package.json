@@ -32,7 +32,7 @@
     "@project-serum/anchor": "0.25.0",
     "@solana/web3.js": "1.50.1",
     "@stripe/stripe-js": "1.33.0",
-    "graphql": "^16.3.0",
+    "graphql": "16.5.0",
     "lodash": "4.17.21",
     "next": "12.2.3",
     "next-intl": "2.7.4",
