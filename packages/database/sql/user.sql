@@ -1,0 +1,5 @@
+DROP TABLE IF EXISTS vleague.user;
+CREATE TABLE vleague.user (
+    email VARCHAR(100) UNIQUE PRIMARY KEY,
+    key VARCHAR(100) NOT NULL
+);

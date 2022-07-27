@@ -1,0 +1,11 @@
+version: '3.9'
+
+services:
+  apis:
+    build: ./services/apis
+  graphql:
+    build: ./services/graphql
+  landing:
+    build: ./web/landing
+  marketplace:
+    build: ./web/marketplace
