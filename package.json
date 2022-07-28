@@ -1,0 +1,56 @@
+{
+  "name": "vleague",
+  "version": "0.0.1",
+  "description": "V.League",
+  "main": "index.js",
+  "repository": "git@github.com:hieudoanm/vleague.git",
+  "author": "hieudoanm <hieumdoan@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">= 14",
+    "npm": ">= 8",
+    "yarn": "1"
+  },
+  "scripts": {
+    "build:apis": "yarn workspace @service/apis build",
+    "build:graphql": "yarn workspace @service/graphql build",
+    "build:landing": "yarn workspace @web/landing build",
+    "build:marketplace": "yarn workspace @web/marketplace build",
+    "build:shared": "yarn workspace shared build",
+    "build": "yarn build:shared && yarn build:apis && yarn build:graphql && yarn build:landing && yarn build:marketplace",
+    "dev:apis": "yarn workspace @service/apis dev",
+    "dev:graphql": "yarn workspace @service/graphql dev",
+    "dev:landing": "yarn workspace @web/landing dev",
+    "dev:marketplace": "yarn workspace @web/marketplace dev",
+    "dev": "concurrently --kill-others-on-fail \"yarn dev:apis\" \"yarn dev:graphql\" \"yarn dev:landing\" \"yarn dev:marketplace\"",
+    "lint:apis": "yarn workspace @service/apis lint",
+    "lint:graphql": "yarn workspace @service/graphql lint",
+    "lint:landing": "yarn workspace @web/landing lint",
+    "lint:marketplace": "yarn workspace @web/marketplace lint",
+    "lint:shared": "yarn workspace shared lint",
+    "lint": "yarn lint:shared && yarn lint:apis && yarn lint:graphql && yarn lint:landing && yarn lint:marketplace",
+    "test:apis": "yarn workspace @service/apis test",
+    "test:graphql": "yarn workspace @service/graphql test",
+    "test:landing": "yarn workspace @web/landing test",
+    "test:marketplace": "yarn workspace @web/marketplace test",
+    "test:shared": "yarn workspace shared test",
+    "test": "yarn test:shared && yarn test:apis && yarn test:graphql && yarn test:landing && yarn test:marketplace",
+    "graph": "nx graph"
+  },
+  "dependencies": {
+    "concurrently": "7.3.0"
+  },
+  "devDependencies": {
+    "husky": "8.0.1",
+    "nx": "14.4.3",
+    "prettier": "2.7.1",
+    "pretty-quick": "3.1.3",
+    "@nrwl/nx-cloud": "latest"
+  },
+  "workspaces": [
+    "packages/*",
+    "services/*",
+    "web/*"
+  ]
+}

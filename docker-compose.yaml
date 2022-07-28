@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  apis:
+    build: ./services/apis
+    container_name: apis
+    ports:
+      - '8080:8080'
+  graphql:
+    build: ./services/graphql
+    container_name: graphql
+    ports:
+      - '5000:5000'
+  landing:
+    build: ./web/landing
+    container_name: landing
+    ports:
+      - '3001:3000'
+  marketplace:
+    build: ./web/marketplace
+    container_name: marketplace
+    ports:
+      - '3002:3000'
