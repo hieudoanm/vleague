@@ -22,7 +22,7 @@
     "apollo-server-express": "3.10.0",
     "cors": "2.8.5",
     "express": "4.18.1",
-    "graphql": "16.3.0",
+    "graphql": "16.5.0",
     "lodash": "4.17.21",
     "pino": "8.3.1",
     "shared": "0.0.1"
