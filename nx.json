@@ -1,0 +1,45 @@
+{
+  "extends": "nx/presets/npm.json",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": [
+          "export:fixtures",
+          "export:players",
+          "export:standings",
+          "export:teams",
+          "export:users",
+          "lint",
+          "patch-id:fixtures",
+          "patch-id:players",
+          "patch-id:standings",
+          "build",
+          "postinstall",
+          "postpack",
+          "prepack",
+          "prepare",
+          "test",
+          "dev",
+          "docs"
+        ],
+        "accessToken": "YzY0MmExYmEtMDZkNi00NjFkLTlkOGEtNzRjZGUwOGE5MTZkfHJlYWQtd3JpdGU="
+      }
+    }
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "prepare": {
+      "dependsOn": [
+        "^prepare"
+      ]
+    }
+  },
+  "affected": {
+    "defaultBase": "master"
+  }
+}
