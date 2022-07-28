@@ -1925,6 +1925,13 @@
   dependencies:
     buffer "~6.0.3"
 
+"@solana/wallet-adapter-backpack@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@solana/wallet-adapter-backpack/-/wallet-adapter-backpack-0.1.0.tgz#cc53e95597736772b8675c20d1c1dbd672d4dd78"
+  integrity sha512-jQfZM8t9oIWpVyc82NU1su1rGxJt7D1+Xp1RSmB5zXEKmeGuQol3T3bSwLXbrwMn1Q9ktldWwsv4jzb0o4jPkQ==
+  dependencies:
+    "@solana/wallet-adapter-base" "^0.9.9"
+
 "@solana/wallet-adapter-base@0.9.9", "@solana/wallet-adapter-base@^0.9.9":
   version "0.9.9"
   resolved "https://registry.yarnpkg.com/@solana/wallet-adapter-base/-/wallet-adapter-base-0.9.9.tgz#110f99bc9eee18af2625fd6170264e4363e25ffd"
@@ -2156,11 +2163,12 @@
     process "^0.11.10"
     stream-browserify "^3.0.0"
 
-"@solana/wallet-adapter-wallets@0.16.8":
-  version "0.16.8"
-  resolved "https://registry.yarnpkg.com/@solana/wallet-adapter-wallets/-/wallet-adapter-wallets-0.16.8.tgz#d7c3222d4fe50962211ee36795f84785d091edd0"
-  integrity sha512-hpKzVBKksmvQxm2C2huGH7U54rtmfmg2lM3plrplukZXVYbc5RjiA37WzfmBijpPYQURwTf/ICQ6s6q5QjvAjA==
+"@solana/wallet-adapter-wallets@0.16.9":
+  version "0.16.9"
+  resolved "https://registry.yarnpkg.com/@solana/wallet-adapter-wallets/-/wallet-adapter-wallets-0.16.9.tgz#e6c46c3880b064dcd7e8f4dcf94df8bf049ebfe6"
+  integrity sha512-1p1b6KgbHgK+SNTRgkBCDJWqA4LwM2UXumq5t/LwwioBNazPBhSp4+Yl+WFd6fzsMzvOXp2TMWmvUOWFoxAp6w==
   dependencies:
+    "@solana/wallet-adapter-backpack" "^0.1.0"
     "@solana/wallet-adapter-base" "^0.9.9"
     "@solana/wallet-adapter-bitkeep" "^0.3.7"
     "@solana/wallet-adapter-bitpie" "^0.5.6"
